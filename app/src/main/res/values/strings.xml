@@ -1,3 +1,9 @@
 <resources>
+
     <string name="app_name">TesteSicredi</string>
+
+    <string name="main_title">Eventos</string>
+
+    <string name="default_error_message">Ocorreu um erro, tente mais tarde</string>
+
 </resources>
