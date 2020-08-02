@@ -96,7 +96,7 @@ class EventDetailActivity : RootActivity<EventDetailView>(), EventDetailView, On
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "text/plain"
         intent.putExtra(Intent.EXTRA_TEXT, "it.description")
-        startActivity(Intent.createChooser(intent, "Compartilhar"))
+        startActivity(Intent.createChooser(intent, getString(R.string.share_with)))
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

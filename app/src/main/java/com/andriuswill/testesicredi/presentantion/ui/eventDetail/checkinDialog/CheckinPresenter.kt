@@ -4,12 +4,14 @@ import android.content.Context
 import android.util.Patterns
 import com.andriuswill.testesicredi.R
 import com.andriuswill.testesicredi.domain.usecases.EventsUseCase
+import com.andriuswill.testesicredi.domain.usecases.RequestExceptionUseCase
 import com.andriuswill.testesicredi.presentantion.base.BasePresenter
 import kotlinx.coroutines.launch
 
 class CheckinPresenter(
     private val context: Context,
-    private val eventsUseCase: EventsUseCase
+    private val eventsUseCase: EventsUseCase,
+    private val requestExceptionUseCase: RequestExceptionUseCase
 ) : BasePresenter<CheckinView>() {
 
     fun checkin(eventId: String?, name: String, email: String) {
@@ -25,7 +27,7 @@ class CheckinPresenter(
                 }
             } catch (e: Exception) {
                 view?.showError(
-                    context.resources.getString(R.string.default_error_message)
+                    requestExceptionUseCase.treatException(e)
                 )
             } finally {
                 view?.hideLoader()
@@ -36,11 +38,11 @@ class CheckinPresenter(
     private fun validateFields(name: String, email: String): Boolean {
         when {
             name.isBlank() -> {
-                view?.showError("Informe um nome válido")
+                view?.showError(context.getString(R.string.error_name))
                 return false
             }
             !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
-                view?.showError("Informe um email válido")
+                view?.showError(context.getString(R.string.error_email))
                 return false
             }
         }

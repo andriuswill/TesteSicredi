@@ -4,7 +4,20 @@
 
     <string name="main_title">Eventos</string>
 
-    <string name="default_error_message">Ocorreu um erro, tente mais tarde</string>
+    <string name="share_with">Compartilhar com…</string>
+
+    <string name="btn_checkin">Check-in</string>
+    <string name="btn_share">Compartilhar</string>
+    <string name="btn_cancel">Cancelar</string>
+
+    <string name="label_name">Nome</string>
+    <string name="label_email">Email</string>
+
+    <string name="error_name">Informe um nome válido</string>
+    <string name="error_email">Informe um email válido</string>
+    <string name="error_internet">Verifique sua conexão</string>
+
+    <string name="error_default">Ocorreu um erro, tente mais tarde</string>
     <string name="title_activity_maps">Map</string>
 
 </resources>
