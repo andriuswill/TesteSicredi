@@ -1,4 +1,4 @@
-package com.andriuswill.testesicredi.presentention.ui.main.adapters
+package com.andriuswill.testesicredi.presentantion.ui.main.adapters
 
 import android.view.LayoutInflater
 import android.view.View

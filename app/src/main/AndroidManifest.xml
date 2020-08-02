@@ -34,10 +34,10 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".presentention.ui.main.MapsActivity"
+            android:name=".presentantion.ui.main.MapsActivity"
             android:label="@string/title_activity_maps"></activity>
         <activity
-            android:name=".presentention.ui.main.MainActivity"
+            android:name=".presentantion.ui.main.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +46,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentention.ui.eventDetail.EventDetailActivity"
+            android:name=".presentantion.ui.eventDetail.EventDetailActivity"
             android:screenOrientation="portrait" />
     </application>
 

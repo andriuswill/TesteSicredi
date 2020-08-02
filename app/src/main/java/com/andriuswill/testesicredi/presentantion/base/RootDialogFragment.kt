@@ -1,4 +1,4 @@
-package com.andriuswill.testesicredi.presentention.ui.base
+package com.andriuswill.testesicredi.presentantion.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

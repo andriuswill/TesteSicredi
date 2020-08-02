@@ -1,4 +1,4 @@
-package com.andriuswill.testesicredi.presentention.ui.main
+package com.andriuswill.testesicredi.presentantion.ui.main
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.andriuswill.testesicredi.R
@@ -6,11 +6,10 @@ import com.andriuswill.testesicredi.data.models.Event
 import com.andriuswill.testesicredi.domain.extensions.gone
 import com.andriuswill.testesicredi.domain.extensions.show
 import com.andriuswill.testesicredi.domain.listener.EventClickListener
-import com.andriuswill.testesicredi.presentention.ui.base.RootActivity
-import com.andriuswill.testesicredi.presentention.ui.eventDetail.EventDetailActivity
-import com.andriuswill.testesicredi.presentention.ui.main.adapters.EventsAdapter
+import com.andriuswill.testesicredi.presentantion.base.RootActivity
+import com.andriuswill.testesicredi.presentantion.ui.eventDetail.EventDetailActivity
+import com.andriuswill.testesicredi.presentantion.ui.main.adapters.EventsAdapter
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import org.kodein.di.generic.instance
 

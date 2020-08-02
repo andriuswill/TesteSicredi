@@ -1,4 +1,4 @@
-package com.andriuswill.testesicredi.presentention.ui.base
+package com.andriuswill.testesicredi.presentantion.base
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

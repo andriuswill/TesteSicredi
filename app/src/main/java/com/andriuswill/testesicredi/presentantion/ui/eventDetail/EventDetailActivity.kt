@@ -1,4 +1,4 @@
-package com.andriuswill.testesicredi.presentention.ui.eventDetail
+package com.andriuswill.testesicredi.presentantion.ui.eventDetail
 
 import android.content.Context
 import android.content.Intent
@@ -8,8 +8,8 @@ import com.andriuswill.testesicredi.data.models.Event
 import com.andriuswill.testesicredi.domain.extensions.gone
 import com.andriuswill.testesicredi.domain.extensions.show
 import com.andriuswill.testesicredi.domain.extensions.toDateText
-import com.andriuswill.testesicredi.presentention.ui.base.RootActivity
-import com.andriuswill.testesicredi.presentention.ui.eventDetail.checkinDialog.CheckinDialogFragment
+import com.andriuswill.testesicredi.presentantion.base.RootActivity
+import com.andriuswill.testesicredi.presentantion.ui.eventDetail.checkinDialog.CheckinDialogFragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback

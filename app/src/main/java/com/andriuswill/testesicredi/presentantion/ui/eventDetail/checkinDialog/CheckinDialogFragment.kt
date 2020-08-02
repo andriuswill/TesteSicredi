@@ -1,12 +1,11 @@
-package com.andriuswill.testesicredi.presentention.ui.eventDetail.checkinDialog
+package com.andriuswill.testesicredi.presentantion.ui.eventDetail.checkinDialog
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
 import com.andriuswill.testesicredi.R
-import com.andriuswill.testesicredi.domain.extensions.gone
 import com.andriuswill.testesicredi.domain.extensions.hide
 import com.andriuswill.testesicredi.domain.extensions.show
-import com.andriuswill.testesicredi.presentention.ui.base.RootDialogFragment
+import com.andriuswill.testesicredi.presentantion.base.RootDialogFragment
 import kotlinx.android.synthetic.main.dialog_fragment_checkin.*
 import org.jetbrains.anko.toast
 import org.kodein.di.generic.instance
@@ -38,7 +37,7 @@ class CheckinDialogFragment : RootDialogFragment<CheckinView>(), CheckinView {
 
     override fun hideLoader(){
         layout_form.show()
-        loader.show()
+        loader.hide()
     }
 
     override fun onCheckedin(){

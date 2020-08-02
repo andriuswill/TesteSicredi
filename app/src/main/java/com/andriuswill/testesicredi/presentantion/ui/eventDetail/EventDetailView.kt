@@ -1,7 +1,7 @@
-package com.andriuswill.testesicredi.presentention.ui.eventDetail
+package com.andriuswill.testesicredi.presentantion.ui.eventDetail
 
 import com.andriuswill.testesicredi.data.models.Event
-import com.andriuswill.testesicredi.presentention.ui.base.BaseView
+import com.andriuswill.testesicredi.presentantion.base.BaseView
 
 interface EventDetailView: BaseView {
     fun showLoader()

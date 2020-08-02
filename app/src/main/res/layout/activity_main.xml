@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBg"
 
-    tools:context=".presentention.ui.main.MainActivity">
+    tools:context=".presentantion.ui.main.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_events"
