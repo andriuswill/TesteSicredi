@@ -2,7 +2,6 @@ package com.andriuswill.testesicredi.presentention.ui.eventDetail
 
 import android.content.Context
 import android.content.Intent
-import android.view.Menu
 import android.view.MenuItem
 import com.andriuswill.testesicredi.R
 import com.andriuswill.testesicredi.data.models.Event
@@ -10,6 +9,7 @@ import com.andriuswill.testesicredi.domain.extensions.gone
 import com.andriuswill.testesicredi.domain.extensions.show
 import com.andriuswill.testesicredi.domain.extensions.toDateText
 import com.andriuswill.testesicredi.presentention.ui.base.RootActivity
+import com.andriuswill.testesicredi.presentention.ui.eventDetail.checkinDialog.CheckinDialogFragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -65,6 +65,17 @@ class EventDetailActivity : RootActivity<EventDetailView>(), EventDetailView, On
         supportActionBar?.title = event.title
         text_description.text = event.description
         text_date.text = event.date.toDateText(this, DATE_FORMAT)
+        layout_event_info.show()
+
+        btn_share.setOnClickListener {
+            shareEvent(event.description)
+        }
+
+        btn_checkin.setOnClickListener {
+            CheckinDialogFragment.show(event.id, supportFragmentManager)
+
+        }
+
         val place = LatLng(event.latitude, event.longitude)
         mMap?.addMarker(MarkerOptions().position(place).title(event.title))
         mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(place, 16f))
@@ -77,23 +88,19 @@ class EventDetailActivity : RootActivity<EventDetailView>(), EventDetailView, On
                 onBackPressed()
                 return true
             }
-            R.id.btn_share -> {
-                val intent = Intent(Intent.ACTION_SEND)
-                intent.type = "text/plain"
-                intent.putExtra(Intent.EXTRA_TEXT, "it.description")
-                startActivity(Intent.createChooser(intent, "Compartilhar"))
-            }
         }
         return false
     }
 
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
+    private fun shareEvent(text: String){
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, "it.description")
+        startActivity(Intent.createChooser(intent, "Compartilhar"))
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.event_detail_menu, menu)
-        return true
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
     }
 
     companion object {
