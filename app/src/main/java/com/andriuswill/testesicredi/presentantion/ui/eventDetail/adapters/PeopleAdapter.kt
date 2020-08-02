@@ -9,7 +9,7 @@ import com.andriuswill.testesicredi.data.models.Event
 import com.andriuswill.testesicredi.data.models.People
 import kotlinx.android.synthetic.main.item_people.view.*
 
-class PeopleAdapter() :
+class PeopleAdapter :
     RecyclerView.Adapter<PeopleAdapter.PeopleVH>() {
 
     private val itens = arrayListOf<People>()
@@ -23,6 +23,8 @@ class PeopleAdapter() :
     fun addPeople(people: People){
         itens.add(people)
         notifyItemInserted(itens.count() - 1)
+        notifyItemRangeChanged(itens.count() - 1, itens.count())
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeopleVH =

@@ -101,7 +101,7 @@ class EventDetailActivity : RootActivity<EventDetailView>(), EventDetailView, On
 
         val place = LatLng(event.latitude, event.longitude)
         mMap?.addMarker(MarkerOptions().position(place).title(event.title))
-        mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(place, 16f))
+        mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(place, 15.5f))
         mapFragment.view?.show()
     }
 
@@ -118,11 +118,12 @@ class EventDetailActivity : RootActivity<EventDetailView>(), EventDetailView, On
     private fun shareEvent(text: String){
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "text/plain"
-        intent.putExtra(Intent.EXTRA_TEXT, "it.description")
+        intent.putExtra(Intent.EXTRA_TEXT, text)
         startActivity(Intent.createChooser(intent, getString(R.string.share_with)))
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
+        googleMap.uiSettings.setAllGesturesEnabled(false)
         mMap = googleMap
     }
 

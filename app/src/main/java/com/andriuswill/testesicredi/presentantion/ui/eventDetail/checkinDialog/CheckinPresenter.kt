@@ -25,15 +25,16 @@ class CheckinPresenter(
                         email = email,
                         name = name
                     ).await()
-                }
-                view?.onCheckedin(
-                    People(
-                        id = "",
-                        eventId = eventId!!,
-                        name = name,
-                        picture = ""
+
+                    view?.onCheckedin(
+                        People(
+                            id = "",
+                            eventId = eventId!!,
+                            name = name,
+                            picture = ""
+                        )
                     )
-                )
+                }
 
             } catch (e: Exception) {
                 view?.showError(
