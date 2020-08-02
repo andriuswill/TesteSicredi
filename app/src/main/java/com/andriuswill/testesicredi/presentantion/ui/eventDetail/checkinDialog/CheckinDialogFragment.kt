@@ -43,9 +43,9 @@ class CheckinDialogFragment : RootDialogFragment<CheckinView>(), CheckinView {
     }
 
     override fun onCheckedin(people: People){
-        activity?.let {
+        /*activity?.let {
             (it as EventCheckinListener).onCheckin(people)
-        }
+        }*/
         context?.let {
             it.toast(it.getString(R.string.checkin_ok))
         }

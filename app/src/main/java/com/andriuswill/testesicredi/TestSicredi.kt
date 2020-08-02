@@ -15,7 +15,7 @@ import org.kodein.di.generic.singleton
 class TestSicredi: Application(), KodeinAware {
 
     override val kodein = Kodein.lazy {
-        bind<ApiBuilder>() with singleton { ApiBuilder(instance()) }
+        bind<ApiBuilder>() with singleton { ApiBuilder() }
         bind<AppServices>() with singleton { AppServices.instance(instance()) }
 
         import(androidXModule(this@TestSicredi))
