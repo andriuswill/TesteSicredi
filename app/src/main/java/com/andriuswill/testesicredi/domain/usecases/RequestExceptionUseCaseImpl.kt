@@ -2,9 +2,9 @@ package com.andriuswill.testesicredi.domain.usecases
 
 import android.content.Context
 import com.andriuswill.testesicredi.R
-import com.andriuswill.testesicredi.data.exceptions.NoInternetException
 import org.json.JSONObject
 import retrofit2.HttpException
+import java.io.IOException
 
 
 class RequestExceptionUseCaseImpl(
@@ -22,7 +22,7 @@ class RequestExceptionUseCaseImpl(
                 } else {
                     context.getString(R.string.error_default)
                 }
-            } else if (exception is NoInternetException) {
+            } else if (exception is IOException) {
                 context.getString(R.string.error_internet)
             } else {
                 context.getString(R.string.error_default)
