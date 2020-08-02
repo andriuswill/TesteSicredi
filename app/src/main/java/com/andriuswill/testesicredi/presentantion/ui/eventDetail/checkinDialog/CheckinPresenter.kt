@@ -3,6 +3,7 @@ package com.andriuswill.testesicredi.presentantion.ui.eventDetail.checkinDialog
 import android.content.Context
 import android.util.Patterns
 import com.andriuswill.testesicredi.R
+import com.andriuswill.testesicredi.data.models.People
 import com.andriuswill.testesicredi.domain.usecases.EventsUseCase
 import com.andriuswill.testesicredi.domain.usecases.RequestExceptionUseCase
 import com.andriuswill.testesicredi.presentantion.base.BasePresenter
@@ -25,6 +26,15 @@ class CheckinPresenter(
                         name = name
                     ).await()
                 }
+                view?.onCheckedin(
+                    People(
+                        id = "",
+                        eventId = eventId!!,
+                        name = name,
+                        picture = ""
+                    )
+                )
+
             } catch (e: Exception) {
                 view?.showError(
                     requestExceptionUseCase.treatException(e)

@@ -47,20 +47,11 @@ class EventsAdapter(private val listener: EventClickListener) :
 
     inner class EventVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(event: Event) = with(itemView) {
-            Picasso.get().load(event.image).fit().centerCrop().into(img_picture)
             Picasso.get()
                 .load(event.image)
+                .error(R.drawable.placeholder_event)
                 .fit()
-                .centerCrop()
-                .into(img_picture, object : Callback {
-                    override fun onSuccess() {
-                        text_title.gone()
-                    }
-                    override fun onError(e: Exception) {
-                        text_title.text = event.title
-                        text_title.show()
-                    }
-                })
+                .into(img_picture)
         }
     }
 

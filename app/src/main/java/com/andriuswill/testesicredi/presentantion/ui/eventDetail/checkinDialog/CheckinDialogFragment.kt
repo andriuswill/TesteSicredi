@@ -3,8 +3,10 @@ package com.andriuswill.testesicredi.presentantion.ui.eventDetail.checkinDialog
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
 import com.andriuswill.testesicredi.R
+import com.andriuswill.testesicredi.data.models.People
 import com.andriuswill.testesicredi.domain.extensions.hide
 import com.andriuswill.testesicredi.domain.extensions.show
+import com.andriuswill.testesicredi.domain.listener.EventCheckinListener
 import com.andriuswill.testesicredi.presentantion.base.RootDialogFragment
 import kotlinx.android.synthetic.main.dialog_fragment_checkin.*
 import org.jetbrains.anko.toast
@@ -31,16 +33,22 @@ class CheckinDialogFragment : RootDialogFragment<CheckinView>(), CheckinView {
     }
 
     override fun showLoader(){
-        layout_form.hide()
-        loader.show()
+        layout_form?.hide()
+        loader?.show()
     }
 
     override fun hideLoader(){
-        layout_form.show()
-        loader.hide()
+        layout_form?.show()
+        loader?.hide()
     }
 
-    override fun onCheckedin(){
+    override fun onCheckedin(people: People){
+        activity?.let {
+            (it as EventCheckinListener).onCheckin(people)
+        }
+        context?.let {
+            it.toast(it.getString(R.string.checkin_ok))
+        }
         dismiss()
     }
 

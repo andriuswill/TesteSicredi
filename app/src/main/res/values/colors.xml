@@ -5,8 +5,9 @@
     <color name="colorAccent">#64D8CB</color>
 
     <color name="colorBg">#CCCCCC</color>
-    <color name="colorBgCard">#CCCCCC</color>
+    <color name="colorBgCard">#484848</color>
 
+    <color name="white">#FFFFFF</color>
     <!--
     #212121
     #484848

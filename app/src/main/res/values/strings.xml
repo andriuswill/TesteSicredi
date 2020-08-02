@@ -6,12 +6,15 @@
 
     <string name="share_with">Compartilhar com…</string>
 
+    <string name="checkin_ok">Check-in realizado!!!</string>
+
     <string name="btn_checkin">Check-in</string>
     <string name="btn_share">Compartilhar</string>
     <string name="btn_cancel">Cancelar</string>
 
     <string name="label_name">Nome</string>
     <string name="label_email">Email</string>
+    <string name="label_people">Participantes:</string>
 
     <string name="error_name">Informe um nome válido</string>
     <string name="error_email">Informe um email válido</string>
