@@ -8,11 +8,13 @@ import com.andriuswill.testesicredi.R
 import com.andriuswill.testesicredi.data.models.Event
 import com.andriuswill.testesicredi.domain.extensions.gone
 import com.andriuswill.testesicredi.domain.extensions.show
+import com.andriuswill.testesicredi.domain.listener.EventClickListener
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_event.view.*
 
-class EventsAdapter() : RecyclerView.Adapter<EventsAdapter.EventVH>() {
+class EventsAdapter(private val listener: EventClickListener) :
+    RecyclerView.Adapter<EventsAdapter.EventVH>() {
 
     private val itens = arrayListOf<Event>()
 
@@ -34,7 +36,13 @@ class EventsAdapter() : RecyclerView.Adapter<EventsAdapter.EventVH>() {
     override fun getItemCount() = itens.size
 
     override fun onBindViewHolder(holder: EventVH, position: Int) {
-        holder.bind(itens[position])
+        val currentEvent = itens[position]
+        holder.bind(currentEvent)
+        holder.itemView.setOnClickListener {
+            listener.onEventClicked(
+                currentEvent.id
+            )
+        }
     }
 
     inner class EventVH(itemView: View) : RecyclerView.ViewHolder(itemView) {

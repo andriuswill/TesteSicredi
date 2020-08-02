@@ -5,18 +5,21 @@ import com.andriuswill.testesicredi.R
 import com.andriuswill.testesicredi.data.models.Event
 import com.andriuswill.testesicredi.domain.extensions.gone
 import com.andriuswill.testesicredi.domain.extensions.show
+import com.andriuswill.testesicredi.domain.listener.EventClickListener
 import com.andriuswill.testesicredi.presentention.ui.base.RootActivity
+import com.andriuswill.testesicredi.presentention.ui.eventDetail.EventDetailActivity
 import com.andriuswill.testesicredi.presentention.ui.main.adapters.EventsAdapter
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import org.kodein.di.generic.instance
 
-class MainActivity: RootActivity<MainView>(), MainView {
+class MainActivity: RootActivity<MainView>(), MainView, EventClickListener {
 
     override val layoutResourceId = R.layout.activity_main
 
     override val presenter: MainPresenter by instance()
-    private val eventsAdapter: EventsAdapter by lazy { EventsAdapter() }
+    private val eventsAdapter: EventsAdapter by lazy { EventsAdapter(this) }
 
     override fun initializeUI() {
         supportActionBar?.title = resources.getString(R.string.main_title)
@@ -42,6 +45,10 @@ class MainActivity: RootActivity<MainView>(), MainView {
 
     override fun hideLoader() {
         loader.gone()
+    }
+
+    override fun onEventClicked(eventId: String) {
+        EventDetailActivity.start(this, eventId)
     }
 
     private fun setupRecylerview() {
